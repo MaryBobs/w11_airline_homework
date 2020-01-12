@@ -6,7 +6,8 @@ import static org.junit.Assert.assertEquals;
 public class FlightManagerTest {
 
     private FlightManager flightManager;
-    private Flight flight;
+    private Flight flight1;
+    private Flight flight2;
     private Plane plane1;
     private Plane plane2;
     private Passenger passenger1;
@@ -17,8 +18,9 @@ public class FlightManagerTest {
     public void before() {
         plane1 = new Plane(PlaneType.ATR72);
         plane2 = new Plane(PlaneType.BOEING747);
-        flight = new Flight(plane2,"FR756",AirportCode.EDI,AirportCode.LPL,"14:00");
-        flightManager = new FlightManager(flight);
+        flight1 = new Flight(plane1,"FR756",AirportCode.EDI,AirportCode.LPL,"14:00");
+        flight2 = new Flight(plane2,"LG825",AirportCode.GLA,AirportCode.DUB,"12:00");
+        flightManager = new FlightManager(flight2);
         passenger1 = new Passenger("Bruce",2);
         passenger2 = new Passenger("Steve",1);
         passenger3 = new Passenger("Adrian",2);
@@ -62,6 +64,12 @@ public class FlightManagerTest {
         flightManager.bookPassenger(passenger1);
         flightManager.bookPassenger(passenger2);
         assertEquals(2.51, flightManager.calculateBaggageWeightRemaining(), 0.01);
+    }
+
+    @Test
+    public void canAddFlightToPassengerWhenBooked() {
+        flightManager.bookPassenger(passenger1);
+        assertEquals(flight2, passenger1.getFlight());
     }
 
 }

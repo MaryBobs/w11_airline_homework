@@ -25,6 +25,7 @@ public class FlightManager {
 
     public void bookPassenger(Passenger passenger) {
         this.flight.bookPassenger(passenger);
+        passenger.addFlight(this.flight);
     }
 
    public double calculateBookedBaggageWeight() {

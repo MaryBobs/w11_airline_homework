@@ -2,10 +2,12 @@ public class Passenger {
 
     private String name;
     private int bags;
+    private Flight flight;
 
     public Passenger(String name, int bags) {
         this.name = name;
-        this.bags =bags;
+        this.bags = bags;
+        this.flight = flight;
     }
 
     public String getName() {
@@ -16,4 +18,11 @@ public class Passenger {
         return this.bags;
     }
 
+    public void addFlight(Flight flight) {
+        this.flight = flight;
+    }
+
+    public Flight getFlight() {
+        return this.flight;
+    }
 }

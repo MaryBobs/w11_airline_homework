@@ -41,4 +41,13 @@ public class Flight {
     public String getDepartureTime() {
         return this.depatureTime;
     }
+
+    public int countAvailableSeats() {
+        return this.plane.getCapacity() - this.countPassengers();
+    }
+
+    public void bookPassenger(Passenger passenger) {
+        if (this.plane.getCapacity() > this.countPassengers()) {
+        this.passengers.add(passenger); }
+    }
 }

@@ -23,4 +23,13 @@ public class FlightManager {
     public void bookPassenger(Passenger passenger) {
         this.flight.bookPassenger(passenger);
     }
+
+   public double calculateBookedBaggageWeight() {
+        double totalBaggage = 0;
+        for (Passenger passenger : this.flight.getPassengerList()) {
+            double baggage = passenger.countBags() * this.calculateBaggageAllowancePerPerson();
+            totalBaggage += baggage;
+       }
+        return totalBaggage;
+    }
 }

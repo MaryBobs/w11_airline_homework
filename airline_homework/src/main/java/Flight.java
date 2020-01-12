@@ -55,4 +55,8 @@ public class Flight {
         this.passengers.add(passenger); }
     }
 
+    public ArrayList<Passenger> getPassengerList() {
+        return new ArrayList<Passenger>(this.passengers);
+    }
+
 }

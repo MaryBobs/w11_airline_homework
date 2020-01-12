@@ -1,5 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
+import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
@@ -72,6 +73,13 @@ public class FlightTest {
         flight.bookPassenger(passenger2);
         flight.bookPassenger(passenger3);
         assertEquals(2, flight.countPassengers());
+    }
+
+    @Test
+    public void canReturnPassengerList() {
+        flight.bookPassenger(passenger1);
+        flight.bookPassenger(passenger2);
+        assertEquals(2, flight.getPassengerList());
     }
 
 }

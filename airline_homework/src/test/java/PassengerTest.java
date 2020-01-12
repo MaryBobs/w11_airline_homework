@@ -31,4 +31,16 @@ public class PassengerTest {
         passenger.addFlight(flight1);
         assertEquals(flight1, passenger.getFlight());
     }
+
+    @Test
+    public void seatNumberStartsAtNull() {
+        assertEquals(0, passenger.getSeat());
+    }
+
+    @Test
+    public void canAddSeat() {
+        int number = 2;
+        passenger.addSeat(number);
+        assertEquals(2, passenger.getSeat());
+    }
 }

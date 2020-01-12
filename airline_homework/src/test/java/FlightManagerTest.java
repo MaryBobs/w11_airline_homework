@@ -30,6 +30,11 @@ public class FlightManagerTest {
     }
 
     @Test
+    public void canGetTotalBaggageWeightAllowance() {
+        assertEquals(5, flightManager.getTotalBaggageWeight(), 0.01);
+    }
+
+    @Test
     public void canCalculateBaggageWeightAllowancePerPassenger() {
         assertEquals(0.83, flightManager.calculateBaggageAllowancePerPerson(), 0.01);
     }
@@ -58,4 +63,5 @@ public class FlightManagerTest {
         flightManager.bookPassenger(passenger2);
         assertEquals(2.51, flightManager.calculateBaggageWeightRemaining(), 0.01);
     }
+
 }

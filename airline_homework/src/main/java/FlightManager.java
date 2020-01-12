@@ -10,10 +10,13 @@ public class FlightManager {
         return this.flight.getPlane();
     }
 
+    public double getTotalBaggageWeight() {
+        return ((double)this.flight.getPlane().getWeight() / 2);
+    }
 
     public double calculateBaggageAllowancePerPerson() {
         this.flight.getPlane().getCapacity();
-        return ((double)this.flight.getPlane().getWeight() / 2) / this.flight.getPlane().getCapacity();
+        return this.getTotalBaggageWeight() / this.flight.getPlane().getCapacity();
     }
 
     public int countPassengers() {
@@ -34,6 +37,6 @@ public class FlightManager {
     }
 
     public double calculateBaggageWeightRemaining() {
-        return ((double)this.flight.getPlane().getWeight() / 2) - this.calculateBookedBaggageWeight();
+        return this.getTotalBaggageWeight() - this.calculateBookedBaggageWeight();
     }
 }

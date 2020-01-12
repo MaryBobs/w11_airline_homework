@@ -32,4 +32,8 @@ public class FlightManager {
        }
         return totalBaggage;
     }
+
+    public double calculateBaggageWeightRemaining() {
+        return ((double)this.flight.getPlane().getWeight() / 2) - this.calculateBookedBaggageWeight();
+    }
 }

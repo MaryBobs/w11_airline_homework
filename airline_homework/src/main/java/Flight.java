@@ -22,6 +22,10 @@ public class Flight {
         return this.passengers.size();
     }
 
+    public Plane getPlane() {
+        return this.plane;
+    }
+
     public PlaneType getPlaneType() {
         return this.plane.getType();
     }
@@ -50,4 +54,5 @@ public class Flight {
         if (this.plane.getCapacity() > this.countPassengers()) {
         this.passengers.add(passenger); }
     }
+
 }

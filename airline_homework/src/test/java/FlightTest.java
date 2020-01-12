@@ -27,6 +27,11 @@ public class FlightTest {
 
     @Test
     public void hasPlane() {
+        assertEquals(plane, flight.getPlane());
+    }
+
+    @Test
+    public void hasPlaneType() {
         assertEquals(PlaneType.ATR72, flight.getPlaneType());
     }
 

@@ -9,6 +9,9 @@ public class FlightManagerTest {
     private Flight flight;
     private Plane plane1;
     private Plane plane2;
+    private Passenger passenger1;
+    private Passenger passenger2;
+    private Passenger passenger3;
 
     @Before
     public void before() {
@@ -16,6 +19,9 @@ public class FlightManagerTest {
         plane2 = new Plane(PlaneType.BOEING747);
         flight = new Flight(plane2,"FR756",AirportCode.EDI,AirportCode.LPL,"14:00");
         flightManager = new FlightManager(flight);
+        passenger1 = new Passenger("Bruce",2);
+        passenger2 = new Passenger("Steve",1);
+        passenger3 = new Passenger("Adrian",2);
     }
 
     @Test
@@ -26,5 +32,16 @@ public class FlightManagerTest {
     @Test
     public void canCalculateBaggageWeightAllowancePerPassenger() {
         assertEquals(0.83, flightManager.calculateBaggageAllowancePerPerson(), 0.01);
+    }
+
+    @Test
+    public void canCountPassengersBookedOntoFlight() {
+        assertEquals(0, flightManager.countPassengers());
+    }
+
+    @Test
+    public void canBookPassengerOntoFlight() {
+        flightManager.bookPassenger(passenger1);
+        assertEquals(1, flightManager.countPassengers());
     }
 }

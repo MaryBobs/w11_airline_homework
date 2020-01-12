@@ -15,4 +15,12 @@ public class FlightManager {
         this.flight.getPlane().getCapacity();
         return ((double)this.flight.getPlane().getWeight() / 2) / this.flight.getPlane().getCapacity();
     }
+
+    public int countPassengers() {
+        return this.flight.countPassengers();
+    }
+
+    public void bookPassenger(Passenger passenger) {
+        this.flight.bookPassenger(passenger);
+    }
 }

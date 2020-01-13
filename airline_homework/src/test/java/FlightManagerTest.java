@@ -18,6 +18,7 @@ public class FlightManagerTest {
     public void before() {
         plane1 = new Plane(PlaneType.ATR72);
         plane2 = new Plane(PlaneType.BOEING747);
+        plane2.createSeats();
         flight1 = new Flight(plane1,"FR756",AirportCode.EDI,AirportCode.LPL,"14:00");
         flight2 = new Flight(plane2,"LG825",AirportCode.GLA,AirportCode.DUB,"12:00");
         flightManager = new FlightManager(flight2);
@@ -70,6 +71,18 @@ public class FlightManagerTest {
     public void canAddFlightToPassengerWhenBooked() {
         flightManager.bookPassenger(passenger1);
         assertEquals(flight2, passenger1.getFlight());
+    }
+
+    @Test
+    public void canAddSeatNumberToPassenger() {
+        flightManager.bookPassenger(passenger1);
+        assertEquals(2, passenger1.getSeat());
+    }
+
+    @Test
+    public void canAssignSeatToPassenger() {
+        flightManager.bookPassenger(passenger1);
+        assertEquals(2, passenger1.getSeat());
     }
 
 }

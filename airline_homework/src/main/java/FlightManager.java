@@ -1,3 +1,6 @@
+import java.util.Random;
+import java.util.stream.IntStream;
+
 public class FlightManager {
 
     private Flight flight;
@@ -40,4 +43,6 @@ public class FlightManager {
     public double calculateBaggageWeightRemaining() {
         return this.getTotalBaggageWeight() - this.calculateBookedBaggageWeight();
     }
+
+
 }
